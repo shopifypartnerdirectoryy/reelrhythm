@@ -21,15 +21,18 @@ export function NewsletterSignup({
   className?: string;
 }) {
   const [values, setValues] = useState({ firstName: "", email: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<{ firstName?: string; email?: string }>({});
   const [done, setDone] = useState(false);
 
   const onSubmit = (e: FormEvent) => {
     e.preventDefault();
     const result = schema.safeParse(values);
     if (!result.success) {
-      const next: Record<string, string> = {};
-      for (const issue of result.error.issues) next[String(issue.path[0])] = issue.message;
+      const next: { firstName?: string; email?: string } = {};
+      for (const issue of result.error.issues) {
+        const key = String(issue.path[0]) as "firstName" | "email";
+        next[key] = issue.message;
+      }
       setErrors(next);
       return;
     }
