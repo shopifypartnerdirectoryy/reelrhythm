@@ -113,13 +113,13 @@ export function getBrief(slug: string): BriefEdition | undefined {
 }
 
 export function latestBrief(): BriefEdition {
-  return BRIEFS[0];
+  return BRIEFS[0]!;
 }
 
 export function briefNeighbours(slug: string) {
   const index = BRIEFS.findIndex((b) => b.slug === slug);
   return {
-    previous: index >= 0 && index < BRIEFS.length - 1 ? BRIEFS[index + 1] : undefined,
-    next: index > 0 ? BRIEFS[index - 1] : undefined,
+    previous: index >= 0 && index < BRIEFS.length - 1 ? BRIEFS[index + 1]! : undefined,
+    next: index > 0 ? BRIEFS[index - 1]! : undefined,
   };
 }

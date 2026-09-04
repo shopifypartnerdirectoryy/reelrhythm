@@ -169,5 +169,5 @@ export function getReport(slug: string): Report | undefined {
 }
 
 export function latestReport(): Report {
-  return REPORTS[0];
+  return REPORTS[0]!;
 }

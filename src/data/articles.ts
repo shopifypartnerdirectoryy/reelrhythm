@@ -252,7 +252,7 @@ export function getArticle(slug: string): Article | undefined {
 }
 
 export function featuredArticle(): Article {
-  return ARTICLES.find((a) => a.featured) ?? ARTICLES[0];
+  return ARTICLES.find((a) => a.featured) ?? ARTICLES[0]!;
 }
 
 export function articlesByAuthor(slug: string): Article[] {
