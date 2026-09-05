@@ -11,7 +11,7 @@ export function Eyebrow({
   as: As = "p",
 }: {
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
   as?: "p" | "span" | "h2";
 }) {
   return <As className={cn("eyebrow text-primary", className)}>{children}</As>;
@@ -25,11 +25,11 @@ export function SectionHeading({
   className,
   inverted,
 }: {
-  eyebrow?: string;
+  eyebrow?: string | undefined;
   title: string;
-  subtitle?: string;
+  subtitle?: string | undefined;
   action?: ReactNode;
-  className?: string;
+  className?: string | undefined;
   inverted?: boolean;
 }) {
   return (
@@ -76,7 +76,7 @@ export function ArrowLink({
 }: {
   to: string;
   children: ReactNode;
-  className?: string;
+  className?: string | undefined;
   params?: Record<string, string>;
 }) {
   return (
@@ -148,9 +148,9 @@ export function KPIStat({
 }: {
   value: string;
   label: string;
-  note?: string;
+  note?: string | undefined;
   change?: string;
-  inverted?: boolean;
+  inverted?: boolean | undefined;
 }) {
   return (
     <div
@@ -204,7 +204,7 @@ export function MovementIndicator({
   delta,
 }: {
   movement: Movement;
-  delta?: number | null;
+  delta?: number | null | undefined;
 }) {
   const base = "inline-flex items-center gap-1 num text-xs";
   if (movement === "new") {
@@ -266,7 +266,7 @@ export function EmptyState({
 }: {
   title: string;
   description: string;
-  action?: ReactNode;
+  action?: ReactNode | undefined;
 }) {
   return (
     <div className="rounded-sm border border-dashed border-border bg-muted/30 px-6 py-16 text-center">

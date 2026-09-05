@@ -13,7 +13,7 @@ export function ArticleMeta({
   inverted,
 }: {
   article: Article;
-  className?: string;
+  className?: string | undefined;
   inverted?: boolean;
 }) {
   return (
@@ -44,7 +44,7 @@ export function ArticleCard({
   compact = false,
 }: {
   article: Article;
-  compact?: boolean;
+  compact?: boolean | undefined;
 }) {
   return (
     <article className="card-lift group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-card">
