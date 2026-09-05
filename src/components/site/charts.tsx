@@ -30,10 +30,10 @@ function ChartFrame({
   footer,
 }: {
   title: string;
-  subtitle?: string;
-  source?: string;
+  subtitle?: string | undefined;
+  source?: string | undefined;
   children: ReactNode;
-  footer?: ReactNode;
+  footer?: ReactNode | undefined;
 }) {
   return (
     <figure className="rounded-sm border border-border bg-card p-5">
@@ -73,10 +73,10 @@ export function LineChartCard({
   comparisonLabel,
 }: {
   title: string;
-  subtitle?: string;
+  subtitle?: string | undefined;
   data: SeriesPoint[];
-  source?: string;
-  comparisonLabel?: string;
+  source?: string | undefined;
+  comparisonLabel?: string | undefined;
 }) {
   return (
     <ChartFrame title={title} subtitle={subtitle} source={source}>
@@ -125,9 +125,9 @@ export function BarChartCard({
   unit = "%",
 }: {
   title: string;
-  subtitle?: string;
+  subtitle?: string | undefined;
   data: SeriesPoint[];
-  source?: string;
+  source?: string | undefined;
   unit?: string;
 }) {
   return (
@@ -152,9 +152,9 @@ export function ComparisonChartCard({
   source,
 }: {
   title: string;
-  subtitle?: string;
+  subtitle?: string | undefined;
   data: SeriesPoint[];
-  source?: string;
+  source?: string | undefined;
 }) {
   return (
     <ChartFrame title={title} subtitle={subtitle} source={source}>
