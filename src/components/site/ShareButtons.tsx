@@ -8,7 +8,7 @@ export function ShareButtons({
   orientation = "horizontal",
 }: {
   title: string;
-  className?: string;
+  className?: string | undefined;
   orientation?: "horizontal" | "vertical";
 }) {
   const [copied, setCopied] = useState(false);

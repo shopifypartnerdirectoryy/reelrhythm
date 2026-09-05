@@ -9,7 +9,7 @@ export function RankingTable({
   compact = false,
 }: {
   ranking: Ranking;
-  limit?: number;
+  limit?: number | undefined;
   compact?: boolean;
 }) {
   const rows = limit ? ranking.rows.slice(0, limit) : ranking.rows;

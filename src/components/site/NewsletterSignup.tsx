@@ -17,7 +17,7 @@ export function NewsletterSignup({
   variant = "panel",
   className,
 }: {
-  variant?: "panel" | "inline";
+  variant?: "panel" | "inline" | undefined;
   className?: string;
 }) {
   const [values, setValues] = useState({ firstName: "", email: "" });
