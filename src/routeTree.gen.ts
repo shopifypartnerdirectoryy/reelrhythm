@@ -12,7 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BriefIndexRouteImport } from './routes/brief.index'
 import { Route as BriefEditionRouteImport } from './routes/brief.$edition'
+import { Route as ChartsIndexRouteImport } from './routes/charts.index'
+import { Route as ChartsSlugRouteImport } from './routes/charts.$slug'
+import { Route as ChartsTicketPriceIndexRouteImport } from './routes/charts.ticket-price-index'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as ReportsIndexRouteImport } from './routes/reports.index'
+import { Route as ReportsSlugRouteImport } from './routes/reports.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -29,44 +35,129 @@ const BriefEditionRoute = BriefEditionRouteImport.update({
   path: '/brief/$edition',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChartsIndexRoute = ChartsIndexRouteImport.update({
+  id: '/charts/',
+  path: '/charts/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChartsSlugRoute = ChartsSlugRouteImport.update({
+  id: '/charts/$slug',
+  path: '/charts/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChartsTicketPriceIndexRoute = ChartsTicketPriceIndexRouteImport.update({
+  id: '/charts/ticket-price-index',
+  path: '/charts/ticket-price-index',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InsightsIndexRoute = InsightsIndexRouteImport.update({
   id: '/insights/',
   path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsIndexRoute = ReportsIndexRouteImport.update({
+  id: '/reports/',
+  path: '/reports/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsSlugRoute = ReportsSlugRouteImport.update({
+  id: '/reports/$slug',
+  path: '/reports/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/brief/$edition': typeof BriefEditionRoute
+  '/charts/$slug': typeof ChartsSlugRoute
+  '/charts/ticket-price-index': typeof ChartsTicketPriceIndexRoute
+  '/insights/$slug': typeof InsightsSlugRoute
+  '/reports/$slug': typeof ReportsSlugRoute
   '/brief/': typeof BriefIndexRoute
+  '/charts/': typeof ChartsIndexRoute
   '/insights/': typeof InsightsIndexRoute
+  '/reports/': typeof ReportsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/brief/$edition': typeof BriefEditionRoute
+  '/charts/$slug': typeof ChartsSlugRoute
+  '/charts/ticket-price-index': typeof ChartsTicketPriceIndexRoute
+  '/insights/$slug': typeof InsightsSlugRoute
+  '/reports/$slug': typeof ReportsSlugRoute
   '/brief': typeof BriefIndexRoute
+  '/charts': typeof ChartsIndexRoute
   '/insights': typeof InsightsIndexRoute
+  '/reports': typeof ReportsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/brief/$edition': typeof BriefEditionRoute
+  '/charts/$slug': typeof ChartsSlugRoute
+  '/charts/ticket-price-index': typeof ChartsTicketPriceIndexRoute
+  '/insights/$slug': typeof InsightsSlugRoute
+  '/reports/$slug': typeof ReportsSlugRoute
   '/brief/': typeof BriefIndexRoute
+  '/charts/': typeof ChartsIndexRoute
   '/insights/': typeof InsightsIndexRoute
+  '/reports/': typeof ReportsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/brief/$edition' | '/brief/' | '/insights/'
+  fullPaths:
+    | '/'
+    | '/brief/$edition'
+    | '/charts/$slug'
+    | '/charts/ticket-price-index'
+    | '/insights/$slug'
+    | '/reports/$slug'
+    | '/brief/'
+    | '/charts/'
+    | '/insights/'
+    | '/reports/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/brief/$edition' | '/brief' | '/insights'
-  id: '__root__' | '/' | '/brief/$edition' | '/brief/' | '/insights/'
+  to:
+    | '/'
+    | '/brief/$edition'
+    | '/charts/$slug'
+    | '/charts/ticket-price-index'
+    | '/insights/$slug'
+    | '/reports/$slug'
+    | '/brief'
+    | '/charts'
+    | '/insights'
+    | '/reports'
+  id:
+    | '__root__'
+    | '/'
+    | '/brief/$edition'
+    | '/charts/$slug'
+    | '/charts/ticket-price-index'
+    | '/insights/$slug'
+    | '/reports/$slug'
+    | '/brief/'
+    | '/charts/'
+    | '/insights/'
+    | '/reports/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BriefEditionRoute: typeof BriefEditionRoute
+  ChartsSlugRoute: typeof ChartsSlugRoute
+  ChartsTicketPriceIndexRoute: typeof ChartsTicketPriceIndexRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
+  ReportsSlugRoute: typeof ReportsSlugRoute
   BriefIndexRoute: typeof BriefIndexRoute
+  ChartsIndexRoute: typeof ChartsIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
+  ReportsIndexRoute: typeof ReportsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -92,11 +183,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BriefEditionRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/charts/': {
+      id: '/charts/'
+      path: '/charts'
+      fullPath: '/charts/'
+      preLoaderRoute: typeof ChartsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/charts/$slug': {
+      id: '/charts/$slug'
+      path: '/charts/$slug'
+      fullPath: '/charts/$slug'
+      preLoaderRoute: typeof ChartsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/charts/ticket-price-index': {
+      id: '/charts/ticket-price-index'
+      path: '/charts/ticket-price-index'
+      fullPath: '/charts/ticket-price-index'
+      preLoaderRoute: typeof ChartsTicketPriceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/insights/': {
       id: '/insights/'
       path: '/insights'
       fullPath: '/insights/'
       preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/insights/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports/': {
+      id: '/reports/'
+      path: '/reports'
+      fullPath: '/reports/'
+      preLoaderRoute: typeof ReportsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports/$slug': {
+      id: '/reports/$slug'
+      path: '/reports/$slug'
+      fullPath: '/reports/$slug'
+      preLoaderRoute: typeof ReportsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -105,8 +238,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BriefEditionRoute: BriefEditionRoute,
+  ChartsSlugRoute: ChartsSlugRoute,
+  ChartsTicketPriceIndexRoute: ChartsTicketPriceIndexRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
+  ReportsSlugRoute: ReportsSlugRoute,
   BriefIndexRoute: BriefIndexRoute,
+  ChartsIndexRoute: ChartsIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
+  ReportsIndexRoute: ReportsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
