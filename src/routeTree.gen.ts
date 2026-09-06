@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BriefIndexRouteImport } from './routes/brief.index'
+import { Route as BriefEditionRouteImport } from './routes/brief.$edition'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BriefIndexRoute = BriefIndexRouteImport.update({
+  id: '/brief/',
+  path: '/brief/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BriefEditionRoute = BriefEditionRouteImport.update({
+  id: '/brief/$edition',
+  path: '/brief/$edition',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/brief/$edition': typeof BriefEditionRoute
+  '/brief/': typeof BriefIndexRoute
+  '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/brief/$edition': typeof BriefEditionRoute
+  '/brief': typeof BriefIndexRoute
+  '/insights': typeof InsightsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/brief/$edition': typeof BriefEditionRoute
+  '/brief/': typeof BriefIndexRoute
+  '/insights/': typeof InsightsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/brief/$edition' | '/brief/' | '/insights/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/brief/$edition' | '/brief' | '/insights'
+  id: '__root__' | '/' | '/brief/$edition' | '/brief/' | '/insights/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BriefEditionRoute: typeof BriefEditionRoute
+  BriefIndexRoute: typeof BriefIndexRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brief/': {
+      id: '/brief/'
+      path: '/brief'
+      fullPath: '/brief/'
+      preLoaderRoute: typeof BriefIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brief/$edition': {
+      id: '/brief/$edition'
+      path: '/brief/$edition'
+      fullPath: '/brief/$edition'
+      preLoaderRoute: typeof BriefEditionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BriefEditionRoute: BriefEditionRoute,
+  BriefIndexRoute: BriefIndexRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
