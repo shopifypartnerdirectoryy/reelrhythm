@@ -10,7 +10,7 @@ export function CategoryFilter({
   options: { value: string; label: string }[];
   value: string;
   onChange: (value: string) => void;
-  label?: string;
+  label?: string | undefined;
 }) {
   return (
     <div role="group" aria-label={label} className="-mx-5 overflow-x-auto px-5 md:mx-0 md:px-0">
@@ -50,10 +50,10 @@ export function SearchBar({
 }: {
   value: string;
   onChange: (value: string) => void;
-  placeholder?: string;
-  id?: string;
-  label?: string;
-  autoFocus?: boolean;
+  placeholder?: string | undefined;
+  id?: string | undefined;
+  label?: string | undefined;
+  autoFocus?: boolean | undefined;
 }) {
   return (
     <div>

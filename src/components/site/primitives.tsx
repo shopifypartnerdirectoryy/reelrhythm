@@ -12,7 +12,7 @@ export function Eyebrow({
 }: {
   children: ReactNode;
   className?: string | undefined;
-  as?: "p" | "span" | "h2";
+  as?: "p" | "span" | "h2" | undefined;
 }) {
   return <As className={cn("eyebrow text-primary", className)}>{children}</As>;
 }
@@ -28,9 +28,9 @@ export function SectionHeading({
   eyebrow?: string | undefined;
   title: string;
   subtitle?: string | undefined;
-  action?: ReactNode;
+  action?: ReactNode | undefined;
   className?: string | undefined;
-  inverted?: boolean;
+  inverted?: boolean | undefined;
 }) {
   return (
     <div
@@ -77,7 +77,7 @@ export function ArrowLink({
   to: string;
   children: ReactNode;
   className?: string | undefined;
-  params?: Record<string, string>;
+  params?: Record<string, string> | undefined;
 }) {
   return (
     <Link
@@ -95,7 +95,7 @@ export function ArrowLink({
   );
 }
 
-export function DataSourceBadge({ source, className }: { source: string; className?: string }) {
+export function DataSourceBadge({ source, className }: { source: string; className?: string | undefined }) {
   return (
     <p className={cn("eyebrow text-muted-foreground", className)}>
       <span className="text-foreground/70">Source:</span> {source}
@@ -103,7 +103,7 @@ export function DataSourceBadge({ source, className }: { source: string; classNa
   );
 }
 
-export function UpdateTimestamp({ date, label = "Updated" }: { date: string; label?: string }) {
+export function UpdateTimestamp({ date, label = "Updated" }: { date: string; label?: string | undefined }) {
   return (
     <p className="eyebrow text-muted-foreground">
       {label}:{" "}
@@ -126,7 +126,7 @@ export function MethodologyNotice({ children }: { children: ReactNode }) {
   );
 }
 
-export function SampleDataBadge({ className }: { className?: string }) {
+export function SampleDataBadge({ className }: { className?: string | undefined }) {
   return (
     <span
       className={cn(
@@ -149,7 +149,7 @@ export function KPIStat({
   value: string;
   label: string;
   note?: string | undefined;
-  change?: string;
+  change?: string | undefined;
   inverted?: boolean | undefined;
 }) {
   return (
@@ -235,7 +235,7 @@ export function MovementIndicator({
   );
 }
 
-export function Breadcrumbs({ items }: { items: { label: string; to?: string }[] }) {
+export function Breadcrumbs({ items }: { items: { label: string; to?: string | undefined }[] }) {
   return (
     <nav aria-label="Breadcrumb" className="mb-6">
       <ol className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
