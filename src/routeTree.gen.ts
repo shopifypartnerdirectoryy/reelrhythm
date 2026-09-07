@@ -10,6 +10,12 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthorsRouteImport } from './routes/authors'
+import { Route as MethodologyRouteImport } from './routes/methodology'
+import { Route as NewsletterRouteImport } from './routes/newsletter'
+import { Route as SearchRouteImport } from './routes/search'
+import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
 import { Route as BriefIndexRouteImport } from './routes/brief.index'
 import { Route as BriefEditionRouteImport } from './routes/brief.$edition'
 import { Route as ChartsIndexRouteImport } from './routes/charts.index'
@@ -23,6 +29,36 @@ import { Route as ReportsSlugRouteImport } from './routes/reports.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthorsRoute = AuthorsRouteImport.update({
+  id: '/authors',
+  path: '/authors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MethodologyRoute = MethodologyRouteImport.update({
+  id: '/methodology',
+  path: '/methodology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsletterRoute = NewsletterRouteImport.update({
+  id: '/newsletter',
+  path: '/newsletter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SearchRoute = SearchRouteImport.update({
+  id: '/search',
+  path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthorSlugRoute = AuthorSlugRouteImport.update({
+  id: '/author/$slug',
+  path: '/author/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BriefIndexRoute = BriefIndexRouteImport.update({
@@ -73,6 +109,12 @@ const ReportsSlugRoute = ReportsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/authors': typeof AuthorsRoute
+  '/methodology': typeof MethodologyRoute
+  '/newsletter': typeof NewsletterRoute
+  '/search': typeof SearchRoute
+  '/author/$slug': typeof AuthorSlugRoute
   '/brief/$edition': typeof BriefEditionRoute
   '/charts/$slug': typeof ChartsSlugRoute
   '/charts/ticket-price-index': typeof ChartsTicketPriceIndexRoute
@@ -85,6 +127,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/authors': typeof AuthorsRoute
+  '/methodology': typeof MethodologyRoute
+  '/newsletter': typeof NewsletterRoute
+  '/search': typeof SearchRoute
+  '/author/$slug': typeof AuthorSlugRoute
   '/brief/$edition': typeof BriefEditionRoute
   '/charts/$slug': typeof ChartsSlugRoute
   '/charts/ticket-price-index': typeof ChartsTicketPriceIndexRoute
@@ -98,6 +146,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/authors': typeof AuthorsRoute
+  '/methodology': typeof MethodologyRoute
+  '/newsletter': typeof NewsletterRoute
+  '/search': typeof SearchRoute
+  '/author/$slug': typeof AuthorSlugRoute
   '/brief/$edition': typeof BriefEditionRoute
   '/charts/$slug': typeof ChartsSlugRoute
   '/charts/ticket-price-index': typeof ChartsTicketPriceIndexRoute
@@ -112,6 +166,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/authors'
+    | '/methodology'
+    | '/newsletter'
+    | '/search'
+    | '/author/$slug'
     | '/brief/$edition'
     | '/charts/$slug'
     | '/charts/ticket-price-index'
@@ -124,6 +184,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/authors'
+    | '/methodology'
+    | '/newsletter'
+    | '/search'
+    | '/author/$slug'
     | '/brief/$edition'
     | '/charts/$slug'
     | '/charts/ticket-price-index'
@@ -136,6 +202,12 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/authors'
+    | '/methodology'
+    | '/newsletter'
+    | '/search'
+    | '/author/$slug'
     | '/brief/$edition'
     | '/charts/$slug'
     | '/charts/ticket-price-index'
@@ -149,6 +221,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AuthorsRoute: typeof AuthorsRoute
+  MethodologyRoute: typeof MethodologyRoute
+  NewsletterRoute: typeof NewsletterRoute
+  SearchRoute: typeof SearchRoute
+  AuthorSlugRoute: typeof AuthorSlugRoute
   BriefEditionRoute: typeof BriefEditionRoute
   ChartsSlugRoute: typeof ChartsSlugRoute
   ChartsTicketPriceIndexRoute: typeof ChartsTicketPriceIndexRoute
@@ -167,6 +245,48 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/authors': {
+      id: '/authors'
+      path: '/authors'
+      fullPath: '/authors'
+      preLoaderRoute: typeof AuthorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/methodology': {
+      id: '/methodology'
+      path: '/methodology'
+      fullPath: '/methodology'
+      preLoaderRoute: typeof MethodologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/newsletter': {
+      id: '/newsletter'
+      path: '/newsletter'
+      fullPath: '/newsletter'
+      preLoaderRoute: typeof NewsletterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/search': {
+      id: '/search'
+      path: '/search'
+      fullPath: '/search'
+      preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/author/$slug': {
+      id: '/author/$slug'
+      path: '/author/$slug'
+      fullPath: '/author/$slug'
+      preLoaderRoute: typeof AuthorSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/brief/': {
@@ -237,6 +357,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AuthorsRoute: AuthorsRoute,
+  MethodologyRoute: MethodologyRoute,
+  NewsletterRoute: NewsletterRoute,
+  SearchRoute: SearchRoute,
+  AuthorSlugRoute: AuthorSlugRoute,
   BriefEditionRoute: BriefEditionRoute,
   ChartsSlugRoute: ChartsSlugRoute,
   ChartsTicketPriceIndexRoute: ChartsTicketPriceIndexRoute,
