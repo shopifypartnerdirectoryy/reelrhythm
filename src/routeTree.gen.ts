@@ -12,9 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthorsRouteImport } from './routes/authors'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as MethodologyRouteImport } from './routes/methodology'
 import { Route as NewsletterRouteImport } from './routes/newsletter'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SearchRouteImport } from './routes/search'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as AuthorSlugRouteImport } from './routes/author.$slug'
 import { Route as BriefIndexRouteImport } from './routes/brief.index'
 import { Route as BriefEditionRouteImport } from './routes/brief.$edition'
@@ -41,6 +45,16 @@ const AuthorsRoute = AuthorsRouteImport.update({
   path: '/authors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MethodologyRoute = MethodologyRouteImport.update({
   id: '/methodology',
   path: '/methodology',
@@ -51,9 +65,19 @@ const NewsletterRoute = NewsletterRouteImport.update({
   path: '/newsletter',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SearchRoute = SearchRouteImport.update({
   id: '/search',
   path: '/search',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthorSlugRoute = AuthorSlugRouteImport.update({
@@ -111,9 +135,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/authors': typeof AuthorsRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/methodology': typeof MethodologyRoute
   '/newsletter': typeof NewsletterRoute
+  '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/terms': typeof TermsRoute
   '/author/$slug': typeof AuthorSlugRoute
   '/brief/$edition': typeof BriefEditionRoute
   '/charts/$slug': typeof ChartsSlugRoute
@@ -129,9 +157,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/authors': typeof AuthorsRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/methodology': typeof MethodologyRoute
   '/newsletter': typeof NewsletterRoute
+  '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/terms': typeof TermsRoute
   '/author/$slug': typeof AuthorSlugRoute
   '/brief/$edition': typeof BriefEditionRoute
   '/charts/$slug': typeof ChartsSlugRoute
@@ -148,9 +180,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/authors': typeof AuthorsRoute
+  '/contact': typeof ContactRoute
+  '/cookies': typeof CookiesRoute
   '/methodology': typeof MethodologyRoute
   '/newsletter': typeof NewsletterRoute
+  '/privacy': typeof PrivacyRoute
   '/search': typeof SearchRoute
+  '/terms': typeof TermsRoute
   '/author/$slug': typeof AuthorSlugRoute
   '/brief/$edition': typeof BriefEditionRoute
   '/charts/$slug': typeof ChartsSlugRoute
@@ -168,9 +204,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/authors'
+    | '/contact'
+    | '/cookies'
     | '/methodology'
     | '/newsletter'
+    | '/privacy'
     | '/search'
+    | '/terms'
     | '/author/$slug'
     | '/brief/$edition'
     | '/charts/$slug'
@@ -186,9 +226,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/authors'
+    | '/contact'
+    | '/cookies'
     | '/methodology'
     | '/newsletter'
+    | '/privacy'
     | '/search'
+    | '/terms'
     | '/author/$slug'
     | '/brief/$edition'
     | '/charts/$slug'
@@ -204,9 +248,13 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/authors'
+    | '/contact'
+    | '/cookies'
     | '/methodology'
     | '/newsletter'
+    | '/privacy'
     | '/search'
+    | '/terms'
     | '/author/$slug'
     | '/brief/$edition'
     | '/charts/$slug'
@@ -223,9 +271,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AuthorsRoute: typeof AuthorsRoute
+  ContactRoute: typeof ContactRoute
+  CookiesRoute: typeof CookiesRoute
   MethodologyRoute: typeof MethodologyRoute
   NewsletterRoute: typeof NewsletterRoute
+  PrivacyRoute: typeof PrivacyRoute
   SearchRoute: typeof SearchRoute
+  TermsRoute: typeof TermsRoute
   AuthorSlugRoute: typeof AuthorSlugRoute
   BriefEditionRoute: typeof BriefEditionRoute
   ChartsSlugRoute: typeof ChartsSlugRoute
@@ -261,6 +313,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthorsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/methodology': {
       id: '/methodology'
       path: '/methodology'
@@ -275,11 +341,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NewsletterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/search': {
       id: '/search'
       path: '/search'
       fullPath: '/search'
       preLoaderRoute: typeof SearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/author/$slug': {
@@ -359,9 +439,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AuthorsRoute: AuthorsRoute,
+  ContactRoute: ContactRoute,
+  CookiesRoute: CookiesRoute,
   MethodologyRoute: MethodologyRoute,
   NewsletterRoute: NewsletterRoute,
+  PrivacyRoute: PrivacyRoute,
   SearchRoute: SearchRoute,
+  TermsRoute: TermsRoute,
   AuthorSlugRoute: AuthorSlugRoute,
   BriefEditionRoute: BriefEditionRoute,
   ChartsSlugRoute: ChartsSlugRoute,
