@@ -12,4 +12,7 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Outside the Lovable build (e.g. Vercel CI) target Vercel's Build Output API.
+  // Inside Lovable this is ignored and the Cloudflare preset stays pinned.
+  nitro: { preset: "vercel" },
 });
