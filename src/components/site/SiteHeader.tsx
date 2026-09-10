@@ -37,7 +37,8 @@ export function SiteHeader() {
         Skip to content
       </a>
       <div className="container-editorial flex h-16 items-center justify-between gap-6 md:h-20">
-        <Link to="/" className="shrink-0" aria-label={`${SITE.name} home`}>
+        <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label={`${SITE.name} home`}>
+          <img src={logoUrl} alt="" className="h-9 w-auto md:h-10" />
           <span className="block text-lg font-medium tracking-[0.18em] uppercase md:text-xl">
             Reel <span className="text-primary">&amp;</span> Rhythm
           </span>
