@@ -92,7 +92,7 @@ export function SiteHeader() {
         >
           <div className="container-editorial flex h-16 items-center justify-between">
             <span className="flex items-center gap-2.5 text-lg tracking-[0.18em] uppercase">
-              <img src={logoUrl} alt="" className="h-9 w-auto" />
+              <img src={logoUrl} alt="" className="h-9 w-auto rounded-sm bg-ink-foreground/95 px-1 py-0.5" />
               Reel <span className="text-gold">&amp;</span> Rhythm
             </span>
             <button
