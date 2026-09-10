@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { NAV, SITE } from "@/data/site";
 import { cn } from "@/lib/utils";
+import logoUrl from "@/assets/rr-logo.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -37,7 +38,8 @@ export function SiteHeader() {
         Skip to content
       </a>
       <div className="container-editorial flex h-16 items-center justify-between gap-6 md:h-20">
-        <Link to="/" className="shrink-0" aria-label={`${SITE.name} home`}>
+        <Link to="/" className="flex shrink-0 items-center gap-2.5" aria-label={`${SITE.name} home`}>
+          <img src={logoUrl} alt="" className="h-9 w-auto md:h-10" />
           <span className="block text-lg font-medium tracking-[0.18em] uppercase md:text-xl">
             Reel <span className="text-primary">&amp;</span> Rhythm
           </span>
@@ -89,7 +91,8 @@ export function SiteHeader() {
           className="fixed inset-0 top-0 z-50 flex flex-col bg-ink text-ink-foreground lg:hidden"
         >
           <div className="container-editorial flex h-16 items-center justify-between">
-            <span className="text-lg tracking-[0.18em] uppercase">
+            <span className="flex items-center gap-2.5 text-lg tracking-[0.18em] uppercase">
+              <img src={logoUrl} alt="" className="h-9 w-auto rounded-sm bg-ink-foreground/95 px-1 py-0.5" />
               Reel <span className="text-gold">&amp;</span> Rhythm
             </span>
             <button
