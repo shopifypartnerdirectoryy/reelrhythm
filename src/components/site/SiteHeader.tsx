@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { NAV, SITE } from "@/data/site";
 import { cn } from "@/lib/utils";
+import logoUrl from "@/assets/rr-logo.png";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
