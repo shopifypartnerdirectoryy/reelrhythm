@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FOOTER_NAV, SITE } from "@/data/site";
+import logoUrl from "@/assets/rr-logo.png";
 
 const SOCIAL = [
   { label: "LinkedIn", href: "https://www.linkedin.com/", Icon: Linkedin },
@@ -15,7 +16,8 @@ export function SiteFooter() {
       <div className="container-editorial py-16">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr_1fr]">
           <div>
-            <p className="text-xl tracking-[0.18em] uppercase">
+            <p className="flex items-center gap-3 text-xl tracking-[0.18em] uppercase">
+              <img src={logoUrl} alt="" className="h-10 w-auto rounded-sm bg-ink-foreground/95 px-1.5 py-1" />
               Reel <span className="text-gold">&amp;</span> Rhythm
             </p>
             <p className="mt-3 max-w-xs text-sm text-ink-foreground/70">{SITE.tagline}</p>

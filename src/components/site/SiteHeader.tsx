@@ -91,7 +91,8 @@ export function SiteHeader() {
           className="fixed inset-0 top-0 z-50 flex flex-col bg-ink text-ink-foreground lg:hidden"
         >
           <div className="container-editorial flex h-16 items-center justify-between">
-            <span className="text-lg tracking-[0.18em] uppercase">
+            <span className="flex items-center gap-2.5 text-lg tracking-[0.18em] uppercase">
+              <img src={logoUrl} alt="" className="h-9 w-auto" />
               Reel <span className="text-gold">&amp;</span> Rhythm
             </span>
             <button
