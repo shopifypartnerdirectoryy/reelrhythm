@@ -147,6 +147,7 @@ export function RankingTable({
           })}
         </tbody>
       </table>
-    </div>
+    </>
+
   );
 }
