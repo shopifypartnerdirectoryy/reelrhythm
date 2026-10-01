@@ -62,38 +62,39 @@
   --popover: oklch(0.995 0.003 90);
   --popover-foreground: oklch(0.16 0.006 60);
 
-  /* Burgundy accent */
-  --primary: oklch(0.4 0.14 20);
+  /* Ink + gold brand accents (from the R&R mark) */
+  --primary: oklch(0.2 0.008 60);
   --primary-foreground: oklch(0.98 0.006 90);
 
   --secondary: oklch(0.942 0.008 85);
   --secondary-foreground: oklch(0.2 0.008 60);
   --muted: oklch(0.94 0.008 85);
   --muted-foreground: oklch(0.48 0.012 65);
-  --accent: oklch(0.93 0.014 80);
+  --accent: oklch(0.93 0.03 85);
   --accent-foreground: oklch(0.2 0.008 60);
   --destructive: oklch(0.52 0.19 27);
   --destructive-foreground: oklch(0.98 0.006 90);
 
   --border: oklch(0.88 0.008 80);
   --input: oklch(0.88 0.008 80);
-  --ring: oklch(0.4 0.14 20);
+  --ring: oklch(0.68 0.12 85);
 
   /* Near-black surface */
-  --ink: oklch(0.16 0.008 60);
+  --ink: oklch(0.15 0.006 60);
   --ink-foreground: oklch(0.965 0.008 90);
   --paper: oklch(0.995 0.003 90);
-  --gold: oklch(0.72 0.12 80);
-  --gold-foreground: oklch(0.18 0.01 60);
+  --gold: oklch(0.74 0.125 85);
+  --gold-foreground: oklch(0.17 0.01 60);
 
   --up: oklch(0.5 0.12 150);
   --down: oklch(0.52 0.19 27);
 
-  --chart-1: oklch(0.4 0.14 20);
-  --chart-2: oklch(0.72 0.12 80);
-  --chart-3: oklch(0.35 0.03 60);
-  --chart-4: oklch(0.55 0.09 200);
-  --chart-5: oklch(0.62 0.1 145);
+  --chart-1: oklch(0.2 0.008 60);
+  --chart-2: oklch(0.74 0.125 85);
+  --chart-3: oklch(0.45 0.03 70);
+  --chart-4: oklch(0.6 0.09 60);
+  --chart-5: oklch(0.82 0.08 90);
+
 }
 
 .dark {
@@ -103,17 +104,18 @@
   --card-foreground: oklch(0.965 0.008 90);
   --popover: oklch(0.2 0.008 60);
   --popover-foreground: oklch(0.965 0.008 90);
-  --primary: oklch(0.58 0.16 22);
-  --primary-foreground: oklch(0.98 0.006 90);
+  --primary: oklch(0.8 0.11 88);
+  --primary-foreground: oklch(0.17 0.01 60);
   --secondary: oklch(0.26 0.008 60);
   --secondary-foreground: oklch(0.965 0.008 90);
   --muted: oklch(0.26 0.008 60);
   --muted-foreground: oklch(0.72 0.012 75);
-  --accent: oklch(0.28 0.012 60);
+  --accent: oklch(0.28 0.02 70);
   --accent-foreground: oklch(0.965 0.008 90);
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.58 0.16 22);
+  --ring: oklch(0.8 0.11 88);
+
   --ink: oklch(0.13 0.008 60);
   --ink-foreground: oklch(0.965 0.008 90);
   --paper: oklch(0.2 0.008 60);
