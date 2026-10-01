@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FOOTER_NAV, SITE } from "@/data/site";
-import logoUrl from "@/assets/rr-logo.png";
+import logoUrl from "@/assets/rr-logo-light.png";
 
 const SOCIAL = [
   { label: "LinkedIn", href: "https://www.linkedin.com/", Icon: Linkedin },

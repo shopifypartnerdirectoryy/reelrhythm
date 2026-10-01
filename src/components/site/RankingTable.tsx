@@ -24,8 +24,51 @@ export function RankingTable({
   }
 
   return (
-    <div className="-mx-5 overflow-x-auto px-5 md:mx-0 md:px-0">
-      <table className="w-full min-w-[36rem] border-collapse text-left">
+    <>
+      {/* Mobile: stacked rows, no sideways scrolling */}
+      <ul className="divide-y divide-border border-y border-border md:hidden">
+        {rows.map((row) => {
+          const movement = movementOf(row);
+          return (
+            <li key={`m-${row.rank}-${row.title}`} className="flex gap-3 py-3">
+              <span className="num w-7 shrink-0 text-base text-muted-foreground">
+                {String(row.rank).padStart(2, "0")}
+              </span>
+              <div className="min-w-0 flex-1">
+                <span className="block font-medium text-foreground">{row.title}</span>
+                <span className="block truncate text-xs text-muted-foreground">
+                  {[row.subtitle, row.country].filter(Boolean).join(" · ")}
+                </span>
+                <span className="mt-1 flex items-center gap-2">
+                  <span className="num text-sm text-foreground">{row.metricValue}</span>
+                  <MovementIndicator
+                    movement={movement}
+                    delta={row.previousRank !== null ? row.previousRank - row.rank : null}
+                  />
+                  {row.changePct !== undefined ? (
+                    <span
+                      className={cn(
+                        "num text-xs",
+                        row.changePct > 0
+                          ? "text-up"
+                          : row.changePct < 0
+                            ? "text-down"
+                            : "text-muted-foreground",
+                      )}
+                    >
+                      {row.changePct > 0 ? "+" : ""}
+                      {row.changePct.toFixed(1)}%
+                    </span>
+                  ) : null}
+                </span>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+
+      <table className="hidden w-full border-collapse text-left md:table">
+
         <caption className="sr-only">
           {ranking.title} — {ranking.period}
         </caption>
