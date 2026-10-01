@@ -59,15 +59,15 @@ function HomePage() {
           fetchPriority="high"
           className="absolute inset-0 size-full object-cover opacity-45"
         />
-        <div className="relative container-editorial py-20 md:py-32">
+        <div className="relative container-editorial py-10 md:py-32">
           <p className="eyebrow text-gold">{SITE.tagline}</p>
-          <h1 className="mt-6 max-w-4xl text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
+          <h1 className="mt-3 max-w-4xl text-4xl leading-[0.95] md:mt-6 md:text-7xl lg:text-8xl">
             Reel <span className="text-gold">&amp;</span> Rhythm
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink-foreground/80 md:text-xl">
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-foreground/80 md:mt-8 md:text-xl">
             {SITE.description}
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-6 flex flex-wrap gap-3 md:mt-10 md:gap-4">
             <Button asChild size="lg" variant="gold">
               <Link to="/insights">Explore R&amp;R Insights</Link>
             </Button>
@@ -75,7 +75,7 @@ function HomePage() {
               <Link to="/newsletter">Subscribe to R&amp;R Brief</Link>
             </Button>
           </div>
-          <dl className="mt-16 grid gap-8 border-t border-ink-foreground/20 pt-8 sm:grid-cols-3">
+          <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-ink-foreground/20 pt-5 md:mt-16 md:gap-8 md:pt-8">
             {[
               { k: "Weekly", v: "R&R Brief" },
               { k: "Recurring", v: "Charts & Rankings" },
@@ -83,11 +83,12 @@ function HomePage() {
             ].map((item) => (
               <div key={item.v}>
                 <dt className="eyebrow text-gold">{item.k}</dt>
-                <dd className="mt-2 text-xl text-ink-foreground">{item.v}</dd>
+                <dd className="mt-1 text-sm text-ink-foreground md:mt-2 md:text-xl">{item.v}</dd>
               </div>
             ))}
           </dl>
         </div>
+
       </section>
 
       {/* This week */}
@@ -119,7 +120,7 @@ function HomePage() {
             title="What we track, updated weekly."
             subtitle="Figures shown are placeholders during development and are labelled as sample data."
           />
-          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-6 md:mt-12 md:gap-10 lg:grid-cols-4">
             {HEADLINE_STATS.map((stat) => (
               <KPIStat
                 key={stat.label}
