@@ -120,7 +120,7 @@ function HomePage() {
             title="What we track, updated weekly."
             subtitle="Figures shown are placeholders during development and are labelled as sample data."
           />
-          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid grid-cols-2 gap-6 md:mt-12 md:gap-10 lg:grid-cols-4">
             {HEADLINE_STATS.map((stat) => (
               <KPIStat
                 key={stat.label}
